@@ -15,7 +15,7 @@ public class PhoneFinderTest {
 	@Test
 	public void phoneFinder() throws FileNotFoundException {
 		
-		Assert.assertEquals("[blog.html, idex7.html]", phoneFinder.phoneFinder("website/").toString());
+		Assert.assertEquals("[blog.html, 123456.7890, idex7.html, 000111.2222]", phoneFinder.phoneFinder("website/").toString());
 		
 	}
 
