@@ -7,16 +7,24 @@ import org.junit.*;
 public class PhoneFinderTest {
 
 	private PhoneFinder phoneFinder;
+	private PhoneFinder matcher;
 
 	public PhoneFinderTest() {
 		phoneFinder = new PhoneFinder();
+		matcher = new PhoneFinder();
+
 	}
 
 	@Test
 	public void phoneFinder() throws FileNotFoundException {
-		
-		Assert.assertEquals("[blog.html, 123456.7890, idex7.html, 000111.2222]", phoneFinder.phoneFinder("website/").toString());
-		
+
+		Assert.assertEquals(
+				"[blog.html, [123456.7890], [777345.8790], [527236.2290], idex7.html, [000111.2222], index222.html, [000111.2222]]",
+				phoneFinder.phoneFinder("website/").toString());
+		Assert.assertEquals("[123456.7890]", matcher.matcher("(123) 456-7890").toString());
+		Assert.assertEquals("[777345.8790]", matcher.matcher("(777) 345-8790").toString());
+		Assert.assertEquals("[527236.2290]", matcher.matcher("(527) 236-2290 ").toString());
+		Assert.assertEquals("[000111.2222]", matcher.matcher("000-111-2222").toString());
 	}
 
 }
